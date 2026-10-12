@@ -2,10 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Halaman publik (Guest) menggunakan template ChocoLux.
+Route::view('/', 'guest.home')->name('guest.home');
 
-Route::get('/admin', function () {
-    return view('admin.dashboard');
-});
+// Halaman dashboard administrator menggunakan template DarkPan.
+Route::view('/admin', 'admin.dashboard')->name('admin.dashboard');
