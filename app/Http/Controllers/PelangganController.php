@@ -9,7 +9,7 @@ class PelangganController extends Controller
 {
     public function index()
     {
-        $pelanggans = Pelanggan::latest()->get();
+        $pelanggans = Pelanggan::latest('created_at')->get();
 
         return view('admin.pelanggan.index', compact('pelanggans'));
     }
@@ -22,10 +22,12 @@ class PelangganController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'nama' => 'required|string|max:255',
-            'email' => 'required|email|unique:pelanggans,email',
-            'telepon' => 'nullable|string|max:20',
-            'alamat' => 'nullable|string',
+            'first_name' => 'required|string|max:100',
+            'last_name' => 'required|string|max:100',
+            'birthday' => 'nullable|date',
+            'gender' => 'nullable|in:Male,Female,Other',
+            'email' => 'required|email|unique:pelanggan,email',
+            'phone' => 'nullable|string|max:20',
         ]);
 
         Pelanggan::create($validated);
@@ -43,10 +45,12 @@ class PelangganController extends Controller
     public function update(Request $request, Pelanggan $pelanggan)
     {
         $validated = $request->validate([
-            'nama' => 'required|string|max:255',
-            'email' => 'required|email|unique:pelanggans,email,' . $pelanggan->id,
-            'telepon' => 'nullable|string|max:20',
-            'alamat' => 'nullable|string',
+            'first_name' => 'required|string|max:100',
+            'last_name' => 'required|string|max:100',
+            'birthday' => 'nullable|date',
+            'gender' => 'nullable|in:Male,Female,Other',
+            'email' => 'required|email|unique:pelanggan,email,' . $pelanggan->pelanggan_id . ',pelanggan_id',
+            'phone' => 'nullable|string|max:20',
         ]);
 
         $pelanggan->update($validated);

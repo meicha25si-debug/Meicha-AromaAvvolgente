@@ -96,7 +96,7 @@
                   <div class="col-md-6">
                     <div class="detail_box">
                       <h1>
-                        Chocolate <br>
+                        Aroma <br>
                         <span>
                           Yummy
                         </span>
@@ -111,7 +111,34 @@
                   </div>
                   <div class="col-md-4 ml-auto">
                     <div class="img-box">
-                      <img src="{{ asset('guest/images/slider-img.png') }}" alt="">
+                     <img src="{{ asset('guest/images/roti.jpg') }}" alt="Roti segar">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item ">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="detail_box">
+                      <h1>
+                        Aroma <br>
+                        <span>
+                          Yummy
+                        </span>
+                      </h1>
+                      <a href="#">
+                        <span>
+                          Read More
+                        </span>
+                        <img src="{{ asset('guest/images/white-arrow.png') }}" alt="">
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-md-4 ml-auto">
+                    <div class="img-box">
+                      <img src="{{ asset('guest/images/roti.jpg') }}" alt="Roti segar">
                     </div>
                   </div>
                 </div>
@@ -138,34 +165,7 @@
                   </div>
                   <div class="col-md-4 ml-auto">
                     <div class="img-box">
-                      <img src="{{ asset('guest/images/slider-img.png') }}" alt="">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item ">
-              <div class="container">
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="detail_box">
-                      <h1>
-                        Chocolate <br>
-                        <span>
-                          Yummy
-                        </span>
-                      </h1>
-                      <a href="#">
-                        <span>
-                          Read More
-                        </span>
-                        <img src="{{ asset('guest/images/white-arrow.png') }}" alt="">
-                      </a>
-                    </div>
-                  </div>
-                  <div class="col-md-4 ml-auto">
-                    <div class="img-box">
-                      <img src="{{ asset('guest/images/slider-img.png') }}" alt="">
+                      <img src="{{ asset('guest/images/roti.jpg') }}" alt="Roti segar">
                     </div>
                   </div>
                 </div>
@@ -237,7 +237,9 @@
         <div class="chocolate_container">
           <div class="box">
             <div class="img-box">
-              <img src="{{ asset('guest/images/chocolate1.png') }}" alt="">
+
+<img src="{{ asset('guest/images/roti.jpg') }}" alt="Roti segar">
+
             </div>
             <div class="detail-box">
               <h6>
@@ -269,7 +271,7 @@
           </div>
           <div class="box">
             <div class="img-box">
-              <img src="{{ asset('guest/images/chocolate3.png') }}" alt="">
+<img src="{{ asset('guest/images/roti.jpg') }}" alt="Roti segar">
             </div>
             <div class="detail-box">
               <h6>
@@ -285,7 +287,7 @@
           </div>
           <div class="box">
             <div class="img-box">
-              <img src="{{ asset('guest/images/chocolate1.png') }}" alt="">
+             <img src="{{ asset('guest/images/roti.jpg') }}" alt="Roti segar">
             </div>
             <div class="detail-box">
               <h6>
