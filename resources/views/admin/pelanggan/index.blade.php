@@ -1,56 +1,27 @@
 
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Pelanggan - Aroma Avvolgente</title>
-    <link href="{{ asset('admin-template/css/bootstrap.min.css') }}" rel="stylesheet">
+@extends('admin.layouts.app')
 
-    <style>
-        body {
-            background-color: #f4f6f9;
-            color: #212529;
-        }
+@section('title', 'Data Pelanggan | Aroma Avvolgente')
 
-        .table {
-            background-color: #fff;
-        }
+@section('content')
+<div class="container-fluid pt-2 px-0">
+    <div class="d-flex align-items-center justify-content-between mb-4">
+        <div>
+            <h3 class="mb-1">Data Pelanggan</h3>
+            <p class="text-muted mb-0">
+                Aroma Avvolgente - Manajemen Pelanggan
+            </p>
+        </div>
 
-        .table thead th {
-            background-color: #343a40;
-            color: #fff;
-        }
-    </style>
-</head>
-<body>
-    <div class="container py-5">
-        <h2>Data Pelanggan</h2>
-        <p class="text-muted">Aroma Avvolgente - Manajemen Pelanggan</p>
-
-        @if (session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
-        @endif
-
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <strong>Terjadi kesalahan:</strong>
-                <ul class="mb-0">
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-
-        <a href="{{ route('pelanggan.create') }}" class="btn btn-danger mb-3">
-            + Tambah Pelanggan
+        <a href="{{ route('pelanggan.create') }}"
+           class="btn btn-primary">
+            <i class="fa fa-plus me-2"></i>Tambah Pelanggan
         </a>
+    </div>
 
+    <div class="bg-secondary rounded p-4">
         <div class="table-responsive">
-            <table class="table table-bordered table-striped">
+            <table class="table table-hover align-middle mb-0">
                 <thead>
                     <tr>
                         <th>No.</th>
@@ -63,6 +34,7 @@
                         <th>Aksi</th>
                     </tr>
                 </thead>
+
                 <tbody>
                     @forelse ($pelanggans as $pelanggan)
                         <tr>
@@ -73,7 +45,7 @@
                             <td>{{ $pelanggan->gender ?: '-' }}</td>
                             <td>{{ $pelanggan->email }}</td>
                             <td>{{ $pelanggan->phone ?: '-' }}</td>
-                            <td>
+                            <td class="text-nowrap">
                                 <a href="{{ route('pelanggan.edit', $pelanggan) }}"
                                    class="btn btn-warning btn-sm">
                                     Edit
@@ -85,7 +57,9 @@
                                       onsubmit="return confirm('Yakin ingin menghapus pelanggan ini?')">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm">
+
+                                    <button type="submit"
+                                            class="btn btn-danger btn-sm">
                                         Hapus
                                     </button>
                                 </form>
@@ -101,10 +75,6 @@
                 </tbody>
             </table>
         </div>
-
-        <a href="{{ route('admin.dashboard') }}" class="btn btn-secondary">
-            Kembali ke Dashboard
-        </a>
     </div>
-</body>
-</html>
+</div>
+@endsection

@@ -1,86 +1,59 @@
 
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Data Produk Kue - Aroma Avvolgente</title>
-    <link href="{{ asset('admin-template/css/bootstrap.min.css') }}" rel="stylesheet">
-</head>
-<body>
-<div class="container py-5">
-    <h2>Data Produk Kue</h2>
-    <p>Aroma Avvolgente - Manajemen Produk</p>
+@extends('admin.layouts.app')
 
-    @if (session('success'))
-        <div class="alert alert-success alert-dismissible fade show">
-            {{ session('success') }}
-            <button type="button" class="btn-close"
-                data-bs-dismiss="alert"></button>
+@section('title', 'Data User | Aroma Avvolgente')
+
+@section('content')
+<div class="container-fluid pt-4 px-4">
+    <div class="bg-secondary rounded p-4">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+            <h4 class="mb-0">Data User</h4>
+            <a href="{{ route('user.create') }}" class="btn btn-primary">
+                <i class="fa fa-plus me-2"></i>Tambah User
+            </a>
         </div>
-    @endif
 
-    @if (session('error'))
-        <div class="alert alert-danger">
-            {{ session('error') }}
-        </div>
-    @endif
-
-    <a href="{{ route('produk-kue.create') }}"
-       class="btn btn-primary mb-3">
-        + Tambah Produk Kue
-    </a>
-
-    <div class="table-responsive">
-        <table class="table table-bordered table-striped">
-            <thead class="table-dark">
-                <tr>
-                    <th>No.</th>
-                    <th>Nama Kue</th>
-                    <th>Kategori</th>
-                    <th>Harga</th>
-                    <th>Stok</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-                @forelse ($produkKues as $produk)
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Nama</th>
+                        <th>Email</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse ($users as $user)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $produk->nama_kue }}</td>
-                        <td>{{ $produk->kategori }}</td>
-                        <td>Rp {{ number_format($produk->harga, 0, ',', '.') }}</td>
-                        <td>{{ $produk->stok }}</td>
+                        <td>{{ $user->name }}</td>
+                        <td>{{ $user->email }}</td>
                         <td>
-                            <a href="{{ route('produk-kue.edit', $produk) }}"
-                               class="btn btn-warning btn-sm">Edit</a>
+                            <a href="{{ route('user.edit', $user->id) }}"
+                               class="btn btn-sm btn-warning">Edit</a>
 
-                            <form action="{{ route('produk-kue.destroy', $produk) }}"
+                            <form action="{{ route('user.destroy', $user->id) }}"
                                   method="POST" class="d-inline"
-                                  onsubmit="return confirm('Yakin ingin menghapus produk ini?')">
+                                  onsubmit="return confirm('Yakin ingin menghapus user ini?')">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit"
-                                    class="btn btn-danger btn-sm">Hapus</button>
+                                <button type="submit" class="btn btn-sm btn-danger">
+                                    Hapus
+                                </button>
                             </form>
                         </td>
                     </tr>
-                @empty
+                    @empty
                     <tr>
-                        <td colspan="6" class="text-center">
-                            Belum ada data produk kue.
+                        <td colspan="4" class="text-center">
+                            Belum ada data user.
                         </td>
                     </tr>
-                @endforelse
-            </tbody>
-        </table>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
     </div>
-
-    <a href="{{ route('admin.dashboard') }}" class="btn btn-secondary">
-        Kembali ke Dashboard
-    </a>
 </div>
-
-<script src="{{ asset('admin-template/js/bootstrap.bundle.min.js') }}"></script>
-</body>
-</html>
+@endsection
