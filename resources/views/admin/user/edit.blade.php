@@ -1,4 +1,3 @@
-
 @extends('admin.layouts.app')
 
 @section('title', 'Edit User | Aroma Avvolgente')

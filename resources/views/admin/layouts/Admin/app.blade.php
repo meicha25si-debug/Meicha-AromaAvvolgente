@@ -17,10 +17,10 @@
 </head>
 <body>
     <div class="container-fluid position-relative d-flex p-0">
-        @include('admin.partials.sidebar')
+        @include('layouts.admin.sidebar')
 
         <div class="content">
-            @include('admin.partials.navbar')
+            @include('layouts.admin.navbar')
 
             <div class="container-fluid pt-4 px-4">
                 @if (session('success'))
@@ -49,7 +49,7 @@
                 @yield('content')
             </div>
 
-            @include('admin.partials.footer')
+            @include('layouts.admin.footer')
         </div>
     </div>
 
