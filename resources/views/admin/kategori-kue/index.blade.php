@@ -1,5 +1,5 @@
-
-@extends('admin.layouts.app')
+﻿
+@extends('layouts.admin.app')
 
 @section('title', 'Data Kategori Kue - Aroma Avvolgente')
 
@@ -73,3 +73,4 @@
         </a>
     </div>
 @endsection
+

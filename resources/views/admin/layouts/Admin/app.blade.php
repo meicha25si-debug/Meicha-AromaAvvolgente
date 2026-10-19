@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -6,21 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title', 'Admin | Aroma Avvolgente')</title>
 
-    <link href="{{ asset('admin-template/img/logo.svg') }}" rel="icon" type="image/svg+xml">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="{{ asset('admin-template/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('admin-template/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('admin-template/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('admin-template/css/style.css') }}" rel="stylesheet">
+    @include('admin.layouts.admin.css')
 </head>
 <body>
     <div class="container-fluid position-relative d-flex p-0">
-        @include('layouts.admin.sidebar')
+        @include('admin.layouts.admin.sidebar')
 
         <div class="content">
-            @include('layouts.admin.navbar')
+            @include('admin.layouts.admin.navbar')
 
             <div class="container-fluid pt-4 px-4">
                 @if (session('success'))
@@ -49,17 +41,10 @@
                 @yield('content')
             </div>
 
-            @include('layouts.admin.footer')
+            @include('admin.layouts.admin.footer')
         </div>
     </div>
 
-    <script src="{{ asset('admin-template/lib/chart/chart.min.js') }}"></script>
-    <script src="{{ asset('admin-template/lib/easing/easing.min.js') }}"></script>
-    <script src="{{ asset('admin-template/lib/waypoints/waypoints.min.js') }}"></script>
-    <script src="{{ asset('admin-template/lib/owlcarousel/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('admin-template/lib/tempusdominus/js/moment.min.js') }}"></script>
-    <script src="{{ asset('admin-template/lib/tempusdominus/js/moment-timezone.min.js') }}"></script>
-    <script src="{{ asset('admin-template/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js') }}"></script>
-    <script src="{{ asset('admin-template/js/main.js') }}"></script>
+    @include('admin.layouts.admin.js')
 </body>
 </html>

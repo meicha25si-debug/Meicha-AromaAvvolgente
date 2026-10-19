@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+﻿@extends('layouts.admin.app')
 
 @section('title', 'Data Pelanggan | Aroma Avvolgente')
 
@@ -77,3 +77,4 @@
     </div>
 </div>
 @endsection
+
