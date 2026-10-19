@@ -20,7 +20,7 @@
         @include('layouts.admin.sidebar')
 
         <div class="content">
-            @include('layouts.admin.navbar')
+            @include('layouts.admin.header')
 
             <div class="container-fluid pt-4 px-4">
                 @if (session('success'))
