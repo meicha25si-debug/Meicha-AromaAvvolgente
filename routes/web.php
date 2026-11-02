@@ -1,7 +1,7 @@
-
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\ProdukKueController;
 use App\Http\Controllers\KategoriKueController;
@@ -10,8 +10,8 @@ use App\Http\Controllers\UserController;
 // Halaman publik (Guest)
 Route::view('/', 'guest.home')->name('guest.home');
 
-// Halaman dashboard Admin
-Route::view('/admin', 'admin.dashboard')->name('admin.dashboard');
+// Dashboard Admin: ringkasan data memakai Query Builder dan Eloquent.
+Route::get('/admin', [DashboardController::class, 'index'])->name('admin.dashboard');
 
 // CRUD Produk Kue
 Route::resource('produk-kue', ProdukKueController::class);
