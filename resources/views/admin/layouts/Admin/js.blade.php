@@ -1,4 +1,3 @@
-
 <script src="{{ asset('admin-template/lib/chart/chart.min.js') }}"></script>
 <script src="{{ asset('admin-template/lib/easing/easing.min.js') }}"></script>
 <script src="{{ asset('admin-template/lib/waypoints/waypoints.min.js') }}"></script>

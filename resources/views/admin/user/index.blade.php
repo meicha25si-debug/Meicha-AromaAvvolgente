@@ -1,5 +1,5 @@
 ﻿
-@extends('layouts.admin.app')
+@extends('admin.layouts.app')
 
 @section('title', 'Data User | Aroma Avvolgente')
 
@@ -57,4 +57,3 @@
     </div>
 </div>
 @endsection
-
